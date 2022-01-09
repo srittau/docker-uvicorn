@@ -1,0 +1,17 @@
+version: "3"
+services:
+  py310:
+    image: srittau/uvicorn:3.10
+    build:
+      context: .
+      args:
+        - pyversion=3.10
+  py39:
+    image: srittau/uvicorn:3.9
+    build:
+      context: .
+      args:
+        - pyversion=3.9
+  latest:
+    image: srittau/gunicorn:latest
+    build: .
