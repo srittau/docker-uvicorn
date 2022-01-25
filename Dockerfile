@@ -6,7 +6,7 @@ ENV PYVERSION ${pyversion:-3.10}
 # Prepare virtualenv
 RUN mkdir -p /app/log
 RUN python -m venv /app/virtualenv
-RUN /app/virtualenv/bin/pip install --upgrade pip setuptools "uvicorn[standard]>=0.16,<0.17"
+RUN /app/virtualenv/bin/pip install --upgrade pip setuptools "uvicorn[standard]"
 COPY ./logging.yml /app/logging.yml
 COPY ./run-uvicorn.sh /app/run-uvicorn.sh
 
