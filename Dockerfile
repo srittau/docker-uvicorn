@@ -10,11 +10,7 @@ RUN /app/virtualenv/bin/pip install --upgrade pip setuptools "uvicorn[standard]"
 COPY ./logging.yml /app/logging.yml
 COPY ./run-uvicorn.sh /app/run-uvicorn.sh
 
-# Install requirements
-ONBUILD COPY ./requirements.txt /app/requirements.txt
-ONBUILD RUN /app/virtualenv/bin/pip --disable-pip-version-check install -q -r /app/requirements.txt
-
-# Run gunicorn
+# Run uvicorn
 WORKDIR /app
 EXPOSE 80
 ENTRYPOINT ["/bin/bash", "/app/run-uvicorn.sh"]

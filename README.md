@@ -2,9 +2,6 @@
 
 A docker base container that runs a uvicorn application server for Python.
 
-If a `requirements.txt` file exists in the top-level directory, the
-packages listed there are installed into the generated container.
-
 ## Configuration
 
 The number of workers to start can be configured using the `UVICORN_WORKERS`
@@ -22,6 +19,8 @@ running that application:
 
 ```
 FROM srittau/uvicorn:latest
+COPY ./requirements.txt /app/requirements.txt
+RUN /app/virtualenv/bin/pip --disable-pip-version-check install -q -r /app/requirements.txt
 COPY ./src/flubber /app/flubber
 CMD ["flubber.app:application"]
 ```
