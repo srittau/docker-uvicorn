@@ -13,5 +13,5 @@ services:
       args:
         - pyversion=3.9
   latest:
-    image: srittau/gunicorn:latest
+    image: srittau/uvicorn:latest
     build: .
