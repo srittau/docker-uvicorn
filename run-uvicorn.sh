@@ -2,6 +2,10 @@
 
 set -e
 
+if test "${UVICORN_ENV}" = dev; then
+    EXTRA_ARGS=--reload
+fi
+
 touch /app/log/access.log
 touch /app/log/error.log
 tail --pid $$ -F /app/log/access.log &
@@ -13,4 +17,5 @@ exec /app/virtualenv/bin/uvicorn \
     --host=0.0.0.0 \
     --port=80 \
     --proxy-headers \
+    ${EXTRA_ARGS} \
     "$@"

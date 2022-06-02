@@ -7,6 +7,10 @@ A docker base container that runs a uvicorn application server for Python.
 The number of workers to start can be configured using the `UVICORN_WORKERS`
 environment variable. It defaults to 4.
 
+By setting the `UVICORN_ENV` environment variable to `dev`, development
+mode is enabled, which will cause uvicorn to automatically reload changed
+files.
+
 The uvicorn logs are written to stdout, but also stored in two files
 in `/app/log` inside the container, named `access.log` and `error.log`.
 
