@@ -1,4 +1,3 @@
-version: "3"
 services:
   py312:
     image: srittau/uvicorn:3.12
