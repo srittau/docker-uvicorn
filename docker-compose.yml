@@ -1,4 +1,10 @@
 services:
+  py313:
+    image: srittau/uvicorn:3.13
+    build:
+      context: .
+      args:
+        - pyversion=3.13
   py312:
     image: srittau/uvicorn:3.12
     build:
@@ -16,4 +22,4 @@ services:
     build:
       context: .
       args:
-        - pyversion=3.12
+        - pyversion=3.13
